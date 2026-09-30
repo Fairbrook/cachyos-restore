@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Restore a fresh CachyOS + Hyprland install to match this machine.
-# Usage: ./install.sh [--hardware] [--skip-packages] [--skip-am] [--skip-dotfiles] [--skip-system]
+# Usage: ./install.sh [--hardware] [--skip-packages] [--skip-am] [--skip-dotfiles] [--skip-tools] [--skip-system]
 #   --hardware  also install kernels, nvidia drivers, bootloader/snapper (machine-specific!)
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 REPO=$PWD
-HARDWARE=0 PKGS=1 AM=1 DOTS=1 SYS=1
+HARDWARE=0 PKGS=1 AM=1 DOTS=1 SYS=1 TOOLS=1
 for a in "$@"; do case $a in
   --hardware) HARDWARE=1;; --skip-packages) PKGS=0;; --skip-am) AM=0;;
-  --skip-dotfiles) DOTS=0;; --skip-system) SYS=0;;
+  --skip-dotfiles) DOTS=0;; --skip-tools) TOOLS=0;; --skip-system) SYS=0;;
   *) echo "unknown flag $a"; exit 1;; esac; done
 log() { printf '\n\033[1;36m==> %s\033[0m\n' "$*"; }
 list() { grep -vE '^\s*(#|$)' "$1"; }
@@ -41,6 +41,17 @@ if ((SYS)); then
   ((HARDWARE)) && for s in ananicy-cpp limine-snapper-sync nvidia-hibernate nvidia-resume nvidia-suspend; do sudo systemctl enable "$s.service" || true; done
   sudo systemctl enable fstrim.timer snapper-cleanup.timer 2>/dev/null || true
   sudo usermod -aG docker,wheel,video,input,audio,lp,storage,rfkill "$USER"
+fi
+
+if ((TOOLS)); then
+  # Runs before dotfiles so our .zshrc (which already has the PNPM_HOME block) overwrites whatever the installers append.
+  log "Claude Code (native installer)"
+  command -v claude &>/dev/null || curl -fsSL https://claude.ai/install.sh | bash
+  log "pnpm (standalone) + Node"
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+  [[ -x $PNPM_HOME/bin/pnpm ]] || curl -fsSL https://get.pnpm.io/install.sh | sh -
+  export PATH="$PNPM_HOME/bin:$PNPM_HOME:$PATH"
+  pnpm env use --global lts || echo "FAILED: pnpm node" | tee -a "$REPO/failed-packages.log"
 fi
 
 if ((DOTS)); then

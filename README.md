@@ -22,6 +22,7 @@ Flags: `--skip-packages --skip-am --skip-dotfiles --skip-system`. Failures are l
 | `secrets.example/` | placeholders for `~/.config/.secrets` used by waybar scripts |
 | `refresh.sh` | re-snapshot this machine into the repo, then commit |
 
+Claude Code (`claude.ai/install.sh`) and pnpm (`get.pnpm.io`, plus Node LTS via `pnpm env use`) are installed by the `tools` step; neither is a pacman package.
 Neovim config is cloned from https://github.com/Fairbrook/lazyvim into `~/.config/nvim` (not vendored).
 tmux-sessionizer is cloned from ThePrimeagen/tmux-sessionizer and symlinked into `~/.local/bin`.
 oh-my-zsh, powerlevel10k, zsh plugins and tpm are cloned by the installer.
@@ -29,7 +30,7 @@ oh-my-zsh, powerlevel10k, zsh plugins and tpm are cloned by the installer.
 ## Not included (do by hand)
 - Secrets: `~/.config/.secrets/*`, `gh auth login`, Bitwarden / SSH agent, `~/.ssh`, WARP/zerotier/rustdesk logins.
 - App data: browser profiles, Claude, Obsidian, etc. (`~/.config/{zen,Claude,...}` is GBs).
-- `MATLAB`, Go in `/usr/local/go`, pnpm/node toolchains — `~/.zshrc` PATH entries point at them.
+- `MATLAB` and Go in `/usr/local/go` — `~/.zshrc` PATH entries point at them. The hardcoded pnpm-store node PATH line in `.zshrc` is machine-specific and will be stale; remove it.
 - `~/.config/rofi.kevinm` (duplicate of rofi), lan-mouse/deskflow/sunshine configs (contain keys/credentials).
 - `system/pacman.conf.reference` is for reference only; the installer just adds the `[lizardbyte]` repo (sunshine).
 
