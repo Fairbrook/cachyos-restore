@@ -1,0 +1,9 @@
+{
+    "custom/lock_screen": {
+        "format": "{icon}",        
+        "format-icons": [""],
+        "on-click": "hyprlock",
+        "tooltip-format": "Schermata di Blocco",
+        "tooltip": true
+    }
+}

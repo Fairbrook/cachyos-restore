@@ -1,0 +1,61 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+	
+    "include": [
+		// "~/.config/waybar/modules.jsonc",
+		"~/.config/waybar/modules/*.jsonc",
+		"~/.config/waybar/modules/custom/*.jsonc",
+		"~/.config/waybar/modules/extra/*.jsonc",
+		"~/.config/waybar/modules/hyprland/*.jsonc"
+	],
+
+    "modules-left": [
+		"clock",
+		"network", 
+		"bluetooth",
+		"hyprland/window"
+	],
+    "modules-center": [
+		"custom/search",
+		"hyprland/workspaces"
+	],
+    "modules-right": [
+		"custom/media",
+		"group/audio",
+		"group/exit",
+		"tray"
+	],
+
+	// Group Hardware
+	"group/hardware": {
+		"orientation": "horizontal",
+		"modules":[
+			"battery",
+			"power-profiles-daemon",
+			"backlight"
+		]
+	},
+
+	// Group IO Audio
+	"group/audio": {
+		"orientation": "horizontal",
+		"modules": [
+			"pulseaudio",
+			"pulseaudio#microphone"
+		]
+	},
+
+	// Group Exit
+	"group/exit": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/power_btn",
+			"custom/lock_screen"
+		]
+	}
+}

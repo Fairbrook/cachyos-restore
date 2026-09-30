@@ -1,0 +1,10 @@
+{
+    "custom/power_btn": {
+        "format" : "{icon}",
+        "format-icons": [""],
+        //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh",
+        "tooltip-format": "",
+        "tooltip": false
+    }
+}

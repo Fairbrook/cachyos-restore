@@ -1,0 +1,27 @@
+[Added Associations]
+application/x-extension-htm=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+application/x-extension-html=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+application/x-extension-shtml=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+application/x-extension-xht=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+application/x-extension-xhtml=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+application/xhtml+xml=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+text/html=userapp-Zen-FH1XO3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-ZC57T3.desktop;
+video/mp4=vlc-4.desktop;vlc-3.desktop;vlc-2.desktop;
+x-scheme-handler/chrome=userapp-Zen-ZC57T3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-FH1XO3.desktop;
+x-scheme-handler/http=userapp-Zen-ZC57T3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-FH1XO3.desktop;
+x-scheme-handler/https=userapp-Zen-ZC57T3.desktop;userapp-Zen-Z6W1S3.desktop;userapp-Zen-FH1XO3.desktop;
+
+[Default Applications]
+application/x-extension-htm=userapp-Zen-ZC57T3.desktop
+application/x-extension-html=userapp-Zen-ZC57T3.desktop
+application/x-extension-shtml=userapp-Zen-ZC57T3.desktop
+application/x-extension-xht=userapp-Zen-ZC57T3.desktop
+application/x-extension-xhtml=userapp-Zen-ZC57T3.desktop
+application/xhtml+xml=userapp-Zen-ZC57T3.desktop
+text/html=userapp-Zen-ZC57T3.desktop
+video/mp4=vlc-4.desktop;
+x-scheme-handler/chrome=userapp-Zen-ZC57T3.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/http=userapp-Zen-ZC57T3.desktop
+x-scheme-handler/https=userapp-Zen-ZC57T3.desktop
+x-scheme-handler/claude=com.anthropic.Claude.desktop

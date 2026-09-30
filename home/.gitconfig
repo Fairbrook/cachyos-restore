@@ -1,0 +1,7 @@
+[user]
+	name = Kevin Martinez
+	email = kevinvr@hotmail.es
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

@@ -1,0 +1,2 @@
+Copied to ~/.config/.secrets by install.sh (only if absent). Fill in real values.
+Used by the waybar scripts (github.sh, wol*.sh, tailscale/ssh host cycling).

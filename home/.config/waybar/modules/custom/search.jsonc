@@ -1,0 +1,8 @@
+{
+    "custom/search": {
+        "format": "{icon} Search",
+        "format-icons": [""],
+        "tooltip-format": "",
+        "on-click": "~/.config/rofi/launchers/type-1/launcher.sh "
+    }
+}

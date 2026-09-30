@@ -1,0 +1,4 @@
+spotify
+zen-browser
+bitwarden
+superproductivity
