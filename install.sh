@@ -47,7 +47,7 @@ if ((DOTS)); then
   log "Deploying dotfiles (existing files are backed up to ~/.dotfiles-backup/<timestamp>)"
   B=$HOME/.dotfiles-backup/$(date +%s); mkdir -p "$B"
   rsync -a --backup --backup-dir="$B" home/ "$HOME/"
-  chmod +x ~/.local/bin/{tmux-sessionizer,gah}
+  chmod +x ~/.local/bin/gah
   mkdir -p ~/.config/.secrets
   for f in secrets.example/*; do [[ $f == */README ]] && continue
     [[ -e ~/.config/.secrets/$(basename "$f") ]] || cp "$f" ~/.config/.secrets/; done
@@ -66,6 +66,13 @@ if ((DOTS)); then
   clone https://github.com/zsh-users/zsh-syntax-highlighting    $C/plugins/zsh-syntax-highlighting
   clone https://github.com/zdharma-continuum/fast-syntax-highlighting $C/plugins/fast-syntax-highlighting
   [[ $SHELL == */zsh ]] || chsh -s "$(command -v zsh)"
+
+  log "tmux-sessionizer (ThePrimeagen)"
+  clone https://github.com/ThePrimeagen/tmux-sessionizer ~/.local/share/tmux-sessionizer-src
+  git -C ~/.local/share/tmux-sessionizer-src pull --ff-only || true
+  mkdir -p ~/.local/bin
+  ln -sf ~/.local/share/tmux-sessionizer-src/tmux-sessionizer ~/.local/bin/tmux-sessionizer
+  chmod +x ~/.local/share/tmux-sessionizer-src/tmux-sessionizer
 
   log "tmux plugin manager"
   clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

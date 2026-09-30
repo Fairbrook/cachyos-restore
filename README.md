@@ -23,6 +23,7 @@ Flags: `--skip-packages --skip-am --skip-dotfiles --skip-system`. Failures are l
 | `refresh.sh` | re-snapshot this machine into the repo, then commit |
 
 Neovim config is cloned from https://github.com/Fairbrook/lazyvim into `~/.config/nvim` (not vendored).
+tmux-sessionizer is cloned from ThePrimeagen/tmux-sessionizer and symlinked into `~/.local/bin`.
 oh-my-zsh, powerlevel10k, zsh plugins and tpm are cloned by the installer.
 
 ## Not included (do by hand)
